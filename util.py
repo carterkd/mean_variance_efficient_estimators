@@ -279,6 +279,9 @@ class rz_data(object):
                 self.R[tt] = np.pad(self.R[tt], [(0, addon)], mode = 'constant')
                 self.Z[tt] = np.pad(self.Z[tt], [(0, addon), (0, 0)], mode = 'constant')
                 self.A.append(np.concatenate((np.ones(self.Ns[tt]), np.zeros(addon))).astype(np.float32))
+            self.R = np.array(self.R)
+            self.Z = np.array(self.Z)
+            self.A = np.array(self.A)
     def make_jagged(self):
         if self.balanced:
             for tt, date in enumerate(self.dates):
