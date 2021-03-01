@@ -247,7 +247,7 @@ class PortfolioRandomForest:
                  print_iter = True):
         self.Z = Z
         self.r = r
-        self.not_missing = not_missing
+        self.not_missing = not_missing > 0.5
         if self.Z is not None:
             self.T, self.N, self.K = self.Z.shape
         self.mean_args = mean_args
@@ -258,7 +258,7 @@ class PortfolioRandomForest:
     def set_data(self, Z, r, not_missing):
         self.Z = Z
         self.r = r
-        self.not_missing = not_missing
+        self.not_missing = not_missing > 0.5
         self.T, self.N, self.K = self.Z.shape
     def purge_data(self):
         #del self.Z
